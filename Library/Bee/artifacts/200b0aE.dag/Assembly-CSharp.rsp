@@ -366,6 +366,8 @@
 "Assets/Scripts/Scene Scripts/Game Over Menu.cs"
 "Assets/Scripts/Scene Scripts/Instructions Menu.cs"
 "Assets/Scripts/Scene Scripts/Menu.cs"
+"Assets/Scripts/Scene Scripts/Score Manager.cs"
+"Assets/Scripts/Scene Scripts/Timer.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"
