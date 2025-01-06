@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 3076285599375050980}
   - component: {fileID: 8212928677508969603}
   - component: {fileID: 7481340929457674905}
+  - component: {fileID: -4352507559651504590}
   - component: {fileID: 9019627789727792196}
   m_Layer: 0
   m_Name: Player
@@ -481,6 +482,22 @@ MonoBehaviour:
   footstepAudioSource: {fileID: 9019627789727792196}
   walkClip: {fileID: 8300000, guid: cadc4e271b21d6345bef9d72e6a09313, type: 3}
   runClip: {fileID: 8300000, guid: a9afb03050f5de745b3ef5b040b04503, type: 3}
+--- !u!114 &-4352507559651504590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2600638997652826868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0616959da1a6e44591b20c5c4512b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pomdpScript: {fileID: 0}
+  soundA: {fileID: 8300000, guid: 0fa68553ec7298f429cb77fce58ff51e, type: 3}
+  soundB: {fileID: 8300000, guid: 74d8d9b64ed850e48a9b252be26b3f38, type: 3}
+  audioSource: {fileID: 9019627789727792196}
 --- !u!82 &9019627789727792196
 AudioSource:
   m_ObjectHideFlags: 0
