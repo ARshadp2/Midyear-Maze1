@@ -16,11 +16,12 @@ public class NPCMovement : MonoBehaviour
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>(); 
+        agent = GetComponent<NavMeshAgent>();
     }
 
     public void Run()
     {
+        transform.position = agent.nextPosition;
         float shortest = 10000;
         int num = 0;
         for (int x = 0; x < manager.GetComponent<MazeManager>().interests.Count; x++) {
@@ -38,24 +39,8 @@ public class NPCMovement : MonoBehaviour
         transform.position.x >= manager.GetComponent<MazeManager>().interests[num].x - .3 &&
         manager.GetComponent<MazeManager>().interests[num].y + .3 >= transform.position.z && 
         transform.position.z >= manager.GetComponent<MazeManager>().interests[num].y - .3) {
-            Debug.Log(manager.GetComponent<MazeManager>().interests[num]);
-            Debug.Log(manager.GetComponent<MazeManager>().interest_state[num]);
             manager.GetComponent<MazeManager>().interests.RemoveAt(num);
             GetComponent<FSM>().think(num);
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("GoodItem"))
-        {
-            Debug.Log("NPC got +10!");
-            Destroy(other.gameObject);
-        }
-        else if (other.CompareTag("BadItem"))
-        {
-            Debug.Log("NPC hit -10!");
-            Destroy(other.gameObject);
         }
     }
 

@@ -365,6 +365,7 @@
 "Assets/Scripts/Movement Scripts/PlayerController.cs"
 "Assets/Scripts/Movement Scripts/PlayerMove.cs"
 "Assets/Scripts/Movement Scripts/POMDP.cs"
+"Assets/Scripts/Movement Scripts/POMDPSoundManager.cs"
 "Assets/Scripts/NavMesh Stuff/TestNav.cs"
 "Assets/Scripts/Scene Scripts/Game Over Menu.cs"
 "Assets/Scripts/Scene Scripts/Instructions Menu.cs"

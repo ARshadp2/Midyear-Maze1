@@ -5,8 +5,7 @@ using UnityEngine;
 public class POMDPSoundManager : MonoBehaviour
 {
     public POMDP pomdpScript;
-    public AudioClip soundA;  // Sound to play if "good" probability > 50%
-    public AudioClip soundB;  // Sound to play otherwise
+    public AudioClip soundA;
     public AudioSource audioSource; 
 
     private void Update()
@@ -30,10 +29,6 @@ public class POMDPSoundManager : MonoBehaviour
         if (probGood > 0.5f)
         {
             audioSource.clip = soundA;
-        }
-        else
-        {
-            audioSource.clip = soundB;
         }
 
         // Play the sound

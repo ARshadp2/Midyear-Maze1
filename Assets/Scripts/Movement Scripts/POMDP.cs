@@ -35,8 +35,6 @@ public class POMDP : MonoBehaviour
         float expected_nothing = calc[0] * maybe;
         float expected_bad = calc[1] * yes + calc[2] * no - cost + calc[0] * maybe;
         float expected_good = calc[2] * yes + calc[1] * no - cost + calc[0] * maybe;
-        Debug.Log("Prob Nothing: " + calc[0] + " Prob Bad: " + calc[1] + " Prob Good: " + calc[2]);
-        Debug.Log("Exp Nothing: " + expected_nothing + " Exp Bad: " + expected_bad + " Exp Good: " + expected_good);
         return new float[] {expected_nothing, expected_bad, expected_good};
     }
     
