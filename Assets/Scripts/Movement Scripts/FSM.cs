@@ -6,10 +6,14 @@ public class FSM : MonoBehaviour
 {
     public string state; //states: idle, move, think, wait
     public GameObject manager;
+    public GameObject player;
     public int current;
     private float start_time;
     private bool waiting = false;
     private bool grab = false;
+    public GameObject freeze;
+    private float launch_gap = 2f;
+    private float saved_time_launch = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,11 @@ public class FSM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time - saved_time_launch >= launch_gap && Vector3.Distance(transform.position, player.transform.position) < 5) {
+            transform.LookAt(player.transform.position);
+            saved_time_launch = Time.time;
+            GameObject projectile = Instantiate(freeze, transform.position, transform.rotation);
+        }
         if (state.Equals("idle")) {
             if (manager.GetComponent<MazeManager>().interests.Count > 0)
                 state = "move";
@@ -57,18 +66,14 @@ public class FSM : MonoBehaviour
             float[] vals = new float[] {0, 0, 0};
             vals = GetComponent<POMDP>().calculate(x);
             if (vals[1] > vals[2] && vals[1] > 0) {
-                Debug.Log("calculated bad");
             }
             else if (vals[2] > vals[1] && vals[2] < 0 || vals[1] == vals[2] || vals[1] > vals[2] && vals[1] < 0) {
-                Debug.Log("need more info");
             }
             else if (vals[2] > 0) {
-                Debug.Log("calculated good");
                 grab = true;
             }
             if (vals[1] > vals[2] && vals[1] > 0 || vals[2] > 0) {
                 manager.GetComponent<MazeManager>().interest_state.RemoveAt(current);
-                Debug.Log(grab);
                 GetComponent<POMDP>().reset();
                 state = "move";
             }
@@ -97,13 +102,13 @@ public class FSM : MonoBehaviour
         if (grab == true) {
             if (other.CompareTag("GoodItem"))
             {
-                manager.GetComponent<MazeManager>().NPC_points += 1;
+                manager.GetComponent<ScoreManager>().score_2 += 1;
                 Destroy(other.gameObject);
                 grab = false;
             }
             else if (other.CompareTag("BadItem"))
             {
-                manager.GetComponent<MazeManager>().NPC_points -= 1;
+                manager.GetComponent<ScoreManager>().score_2-= 1;
                 Destroy(other.gameObject);
                 grab = false;
             }

@@ -12,6 +12,7 @@ public class player : MonoBehaviour
     public GameObject AI;
     public float time;
     public GameObject manager;
+    public GameObject freeze;
     private bool time_sound = false;
     
     // Footstep-related variables
@@ -21,6 +22,8 @@ public class player : MonoBehaviour
     public AudioClip observed;
     private bool isFootstepsPlaying = false; // Flag to prevent overlapping footstep sounds
     private float footstepTimer = 0f; // Timer to control footstep interval
+    private float launch_gap = 5f;
+    private float saved_time_launch = 0;
 
     
     void Update(){
@@ -102,6 +105,10 @@ public class player : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.DownArrow)) {
             transform.rotation = Quaternion.Euler(0, 135, 0);
         }
+        if ((Input.GetKey(KeyCode.C)) && Time.time - saved_time_launch >= launch_gap) {
+            saved_time_launch = Time.time;
+            GameObject projectile = Instantiate(freeze, transform.position, transform.rotation);
+        }
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) {
             if (Input.GetKey(KeyCode.LeftShift)) {
                 playerAnim.ResetTrigger("run");
@@ -174,6 +181,7 @@ public class player : MonoBehaviour
             Debug.Log("work2");
             float randVal = Random.value;
             footstepAudioSource.clip = observed;
+            footstepAudioSource.loop = false;
             if (randVal < AI.GetComponent<POMDP>().observations[stat,0]) {
                 footstepAudioSource.pitch = .25f;
                 Debug.Log("test1");
@@ -205,11 +213,11 @@ public class player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z)) {
             if (other.CompareTag("GoodItem"))
             {
-                manager.GetComponent<MazeManager>().player_points += 1;
+                manager.GetComponent<ScoreManager>().score_1 += 1;
             }
             else if (other.CompareTag("BadItem"))
             {
-                manager.GetComponent<MazeManager>().player_points -= 1;
+                manager.GetComponent<ScoreManager>().score_1 -= 1;
             }
             Destroy(other.gameObject);
         }

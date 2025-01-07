@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
     private int start_time = 0;
-    private int textTime = 180;
-    private int actualTime = 180;
+    private int textTime = 30;
+    private int actualTime = 30;
     public TMP_Text timer; 
     private bool on_scene = false;
+    public GameObject manager;
 
     void Start() {
         UpdateTimer();
@@ -18,7 +19,7 @@ public class Timer : MonoBehaviour {
 
     void Update() {
         if (on_scene == false && SceneManager.GetActiveScene().name == "TestScene") {
-            ScoreManager.reset();
+            manager.GetComponent<ScoreManager>().reset();
             start_time = (int) Time.time;
             on_scene = true;
         }
@@ -44,7 +45,10 @@ public class Timer : MonoBehaviour {
     void timerEnded()
     {
         on_scene = false;
-        SceneManager.LoadScene("Game Over Scene");
+        if (manager.GetComponent<ScoreManager>().score_1 > manager.GetComponent<ScoreManager>().score_2)
+            SceneManager.LoadScene("Win Scene");
+        else
+            SceneManager.LoadScene("Game Over Scene");
     }
 
 

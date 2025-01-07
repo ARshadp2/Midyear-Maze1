@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 8212928677508969603}
   - component: {fileID: 7481340929457674905}
   - component: {fileID: 9019627789727792196}
+  - component: {fileID: 4802207967612266835}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -478,6 +479,10 @@ MonoBehaviour:
   ro_speed: 150
   walking: 0
   playerTrans: {fileID: 231982851960458529}
+  AI: {fileID: 0}
+  time: 0
+  manager: {fileID: 0}
+  freeze: {fileID: 0}
   footstepAudioSource: {fileID: 9019627789727792196}
   walkClip: {fileID: 8300000, guid: cadc4e271b21d6345bef9d72e6a09313, type: 3}
   runClip: {fileID: 8300000, guid: a9afb03050f5de745b3ef5b040b04503, type: 3}
@@ -578,6 +583,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4802207967612266835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2600638997652826868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b0e09b553f12b479dcfcfbf698dcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
 --- !u!1 &2707687876960972853
 GameObject:
   m_ObjectHideFlags: 0

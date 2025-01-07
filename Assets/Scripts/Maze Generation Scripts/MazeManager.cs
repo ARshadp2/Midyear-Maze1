@@ -9,8 +9,6 @@ public class MazeManager : MonoBehaviour
     public GameObject BadItem;
     public List<Vector2Int> interests;
     public List<int> interest_state;
-    public int player_points = 0;
-    public int NPC_points = 0;
 
     // Distribution: 20% bad, 20% good, 60% neutral
     private float badProb = 0.2f;
