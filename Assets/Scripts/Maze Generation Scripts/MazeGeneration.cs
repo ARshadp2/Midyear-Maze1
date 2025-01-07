@@ -109,10 +109,11 @@ public class MazeGeneration : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 Vector3 position = new Vector3(x - width/2, 0f, y - height/2);
+                Vector3 WallPos = new Vector3((x-width/2)+1.27f, 2f, (y-height/2)+.5f);
 
                 if (map[x, y].wall)
                 {
-                    Instantiate(wallPrefab, position, Quaternion.identity, transform);
+                    Instantiate(wallPrefab, WallPos, Quaternion.identity, transform);
                 }
                 else
                 {

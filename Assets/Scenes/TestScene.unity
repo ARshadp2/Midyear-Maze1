@@ -649,8 +649,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 40
+  orthographic: 0
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
@@ -1538,7 +1538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438caeaaee6791b4bab0bd7ad1399fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallPrefab: {fileID: 1254673626536263897, guid: b0909cc48e9f1d64f8b7320baa83dd10, type: 3}
+  wallPrefab: {fileID: 6635516476048525068, guid: 568f657022870ae4ca52571739d83fe6, type: 3}
   floorPrefab: {fileID: 7021350521483053707, guid: 3b95c2a078c51d04e87a58398dc17089, type: 3}
 --- !u!114 &2079341981
 MonoBehaviour:
