@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
     private int start_time = 0;
-    private int textTime = 30;
-    private int actualTime = 30;
+    private int textTime = 90;
+    private int actualTime = 90;
     public TMP_Text timer; 
     private bool on_scene = false;
     public GameObject manager;
