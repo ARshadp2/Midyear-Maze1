@@ -23,14 +23,17 @@ public class FSM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(state);
         if (Time.time - saved_time_launch >= launch_gap && Vector3.Distance(transform.position, player.transform.position) < 5) {
             transform.LookAt(player.transform.position);
             saved_time_launch = Time.time;
             GameObject projectile = Instantiate(freeze, transform.position, transform.rotation);
         }
-        if (state.Equals("idle")) {
+        if (state.Equals("idle")) { //
             if (manager.GetComponent<MazeManager>().interests.Count > 0)
                 state = "move";
+            else
+                state = "chase";
         }
         else if (state.Equals("move")) {
             GetComponent<NPCMovement>().Run();
@@ -91,6 +94,8 @@ public class FSM : MonoBehaviour
                 state = "think";
             }
         }
+        else if (state.Equals("chase"))
+            GetComponent<NPCMovement>().Chase();
     }
 
     public void think(int x) {

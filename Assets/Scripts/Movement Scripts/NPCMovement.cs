@@ -50,4 +50,9 @@ public class NPCMovement : MonoBehaviour
             distance += Vector3.Distance(path.corners[x], path.corners[x+1]);
         return distance;
     }
+    
+    public void Chase() {
+        agent.SetDestination(player.transform.position);
+        transform.position = agent.nextPosition;
+    }
 }
