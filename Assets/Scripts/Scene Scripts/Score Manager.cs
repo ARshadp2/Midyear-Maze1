@@ -14,8 +14,8 @@ public class ScoreManager : MonoBehaviour
     // Start is called befores the first frame update
     void Update()
     {
-        player_p.SetText("Score: " + score_1); // Update the score display
-        NPC_p.SetText("Score: " + score_2);
+        player_p.SetText("Player Score: " + score_1); // Update the score display
+        NPC_p.SetText("AI Score: " + score_2);
     }
     public void reset() {
         score_1 = 0;

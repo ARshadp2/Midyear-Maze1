@@ -19,7 +19,7 @@ public class PlayerProjectile : MonoBehaviour
     }
     void OnTriggerEnter(Collider other) {
         if (other.tag == "AI") {
-            other.GetComponent<FSM>().manager.GetComponent<ScoreManager>().score_2 -= 2;
+            other.GetComponent<FSM>().manager.GetComponent<ScoreManager>().score_2 -= 1;
         }
         if (other.tag != "Player")
             Destroy(gameObject);
