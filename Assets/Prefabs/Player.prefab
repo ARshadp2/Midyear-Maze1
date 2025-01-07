@@ -351,7 +351,7 @@ Transform:
   m_GameObject: {fileID: 2600638997652826868}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 540.4447, y: 36.01, z: 246.46}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -482,11 +482,11 @@ MonoBehaviour:
   AI: {fileID: 0}
   time: 0
   manager: {fileID: 0}
-  freeze: {fileID: 0}
+  freeze: {fileID: 100000, guid: d7ec3986b32d9544ebfdc035c7d5f1ca, type: 3}
   footstepAudioSource: {fileID: 9019627789727792196}
   walkClip: {fileID: 8300000, guid: cadc4e271b21d6345bef9d72e6a09313, type: 3}
   runClip: {fileID: 8300000, guid: a9afb03050f5de745b3ef5b040b04503, type: 3}
-  observed: {fileID: 0}
+  observed: {fileID: 8300000, guid: 0fa68553ec7298f429cb77fce58ff51e, type: 3}
 --- !u!82 &9019627789727792196
 AudioSource:
   m_ObjectHideFlags: 0
